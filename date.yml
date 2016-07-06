@@ -3,4 +3,4 @@
   gather_facts: yes
   tasks:
     - name: install the latest version of Apache
-      yum: name=httpd state=latest
+      shell: date
