@@ -2,6 +2,5 @@
 - hosts: all
   gather_facts: yes
   tasks:
-    - name: Run the date command on all hosts
-      #shell: date
-      debug: msg="this is a debug msg"
+    - name: install the latest version of Apache
+      yum: name=httpd state=latest
