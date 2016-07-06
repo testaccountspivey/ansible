@@ -3,4 +3,5 @@
   gather_facts: yes
   tasks:
     - name: Run the date command on all hosts
-      shell: date
+      #shell: date
+      debug: msg="this is a debug msg"
