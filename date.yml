@@ -1,7 +1,6 @@
 --- # Run the date command on all hosts in Job Template avilable inventory
 - hosts: all
   user: localhost
-  connection: ssh
   gather_facts: yes
   tasks:
   - name: Run the date command on all hosts
