@@ -3,9 +3,9 @@
   gather_facts: no
   vars:
     instance_ids:
-      - 'i-bd15b72d'
-    region: us-east-1
-    subnet: subnet-722ad12b
+      - 'i-bd15c24a'
+    region: us-west-2
+    subnet: subnet-722cvs23
   tasks:
     - name: Stop the sandbox instances
       ec2:
