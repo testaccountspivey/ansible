@@ -5,7 +5,8 @@
     - name: install the latest version of Apache
       shell: date
     - name: install Apache
-      yum: name=httpd state=latest
+      - yum: name=httpd state=latest
+      - service: name=httpd state=started
       tags:
         - install
     - name: remove/delete Apache
