@@ -6,13 +6,9 @@
       shell: date
     - name: install Apache
       yum: name=httpd state=latest
-      tags:
-        - install
     - name: start Apache service
       service: name=httpd state=started
-      tags:
-        - install
-    - name: remove/delete Apache
-      yum: name=httpd state=absent
-      tags:
-        - delete
+#    - name: remove/delete Apache
+#      yum: name=httpd state=absent
+#      tags:
+#        - delete
