@@ -1,16 +1,16 @@
 --- # Run the date command on all hosts in Job Template avilable inventory
-- hosts: all
-  gather_facts: no
+- hosts: localhost
+  gather_facts: yes
   vars:
     instance_ids:
-      - 'i-bd15c24a'
-    region: us-west-2
-    subnet: subnet-722cvs23
+      - 'i-bd15b72d'
+    region: us-east-1
+    subnet: subnet-722ad12b
   tasks:
     - name: Stop the sandbox instances
       ec2:
         instance_ids: '{{ instance_ids }}'
         region: '{{ region }}'
-        vpc_subnet_id: '{{ subnet }}'
+        vpc_subnet_id: '{{ region }}'
         state: stopped
         wait: True
