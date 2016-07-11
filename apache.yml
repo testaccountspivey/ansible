@@ -6,7 +6,9 @@
       shell: date
     - name: install Apache
       yum: package=httpd state=installed
-      tag: install
+      tags:
+        - install
     - name: remove/delete Apache
       yum: package=httpd state=absent
-      tag: delete
+      tags:
+        - delete
