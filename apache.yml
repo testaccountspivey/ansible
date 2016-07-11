@@ -7,9 +7,12 @@
         yum: name={{ item }} state=latest
         with_items:
           - httpd
-          - mysql
+          - mysqld
       - name: start Apache service
-        service: name=httpd state=started
+        service: name={{ item }} state=started
+        with_items:
+          - httpd
+          - mysqld
       tags:
         - install
     - name: remove/delete Apache, mysql
