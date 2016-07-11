@@ -5,6 +5,7 @@
     - block:
       - name: install Apache, wget, curl, telnet
         yum: name={{ item }} state=latest
+        with_items:
           - httpd
           - wget
           - curl
@@ -15,6 +16,7 @@
         - install
     - name: remove/delete Apache, wget, curl, telnet
       yum: name={{ item }} state=absent
+      with_items:
         - httpd
         - wget
         - curl
