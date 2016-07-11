@@ -1,25 +1,21 @@
 --- # Run the date command on all hosts in Job Template avilable inventory
 - hosts: all
-  gather_facts: yes
+  gather_facts: no
   tasks:
     - block:
-      - name: install Apache, wget, curl, telnet
+      - name: install Apache, mysql
         yum: name={{ item }} state=latest
         with_items:
           - httpd
-          - wget
-          - curl
-          - telnet
+          - mysql
       - name: start Apache service
         service: name=httpd state=started
       tags:
         - install
-    - name: remove/delete Apache, wget, curl, telnet
+    - name: remove/delete Apache, mysql
       yum: name={{ item }} state=absent
       with_items:
         - httpd
-        - wget
-        - curl
-        - telnet
+        - mysql
       tags:
         - delete
