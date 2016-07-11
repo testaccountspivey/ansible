@@ -1,0 +1,12 @@
+--- # Run the date command on all hosts in Job Template avilable inventory
+- hosts: all
+  gather_facts: yes
+  tasks:
+    - name: install the latest version of Apache
+      shell: date
+    - name: install Apache
+      yum: package=httpd state=installed
+      tag: install
+    - name: remove/delete Apache
+      yum: package=httpd state=absent
+      tag: delete
