@@ -3,13 +3,21 @@
   gather_facts: yes
   tasks:
     - block:
-      - name: install Apache
-        yum: name=httpd state=latest
+      - name: install Apache, wget, curl, telnet
+        yum: name={{ item }} state=latest
+          - httpd
+          - wget
+          - curl
+          - telnet
       - name: start Apache service
         service: name=httpd state=started
       tags:
         - install
-    - name: remove/delete Apache
-      yum: name=httpd state=absent
+    - name: remove/delete Apache, wget, curl, telnet
+      yum: name={{ item }} state=absent
+        - httpd
+        - wget
+        - curl
+        - telnet
       tags:
         - delete
