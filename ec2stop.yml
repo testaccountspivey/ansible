@@ -1,5 +1,5 @@
 --- # Run the date command on all hosts in Job Template avilable inventory
-- hosts: localhost
+- hosts: all
   gather_facts: no
   vars:
     instance_id: i-bd15b72d
@@ -11,5 +11,5 @@
         instance_ids: '{{ instance_id }}'
         region: '{{ region }}'
         vpc_subnet_id: '{{ region }}'
-        state: running
+        state: stopped
         wait: True
