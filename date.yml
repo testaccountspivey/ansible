@@ -2,5 +2,5 @@
 - hosts: all
   gather_facts: yes
   tasks:
-    - name: install the latest version of Apache
+    - name: run sheel date command - really just to prove accessibility
       shell: date
