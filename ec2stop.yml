@@ -1,5 +1,6 @@
 --- # Run the date command on all hosts in Job Template avilable inventory
 - hosts: all
+  connection: local
   gather_facts: no
   vars:
     instance_id: i-6e6a42e8
