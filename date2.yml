@@ -1,0 +1,6 @@
+--- Date shell command test connectivity to ec2 instances
+- hosts: all
+  gather facts: yes
+  tasks
+    - name: run the shall date command
+      shell: date
