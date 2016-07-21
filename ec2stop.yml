@@ -2,7 +2,7 @@
 - hosts: all
   gather_facts: no
   vars:
-    instance_id: i-bd15b72d
+    instance_id: i-6e6a42e8
     region: us-east-1
     subnet: subnet-722ad12b
   tasks:
