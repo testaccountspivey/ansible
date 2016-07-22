@@ -2,5 +2,5 @@
 - hosts: all
   gather_facts: yes
   tasks:
-    - name: run sheel date command - really just to prove accessibility
+    - name: run shell date command - really just to prove accessibility
       shell: date
