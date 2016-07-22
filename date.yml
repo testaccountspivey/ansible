@@ -4,6 +4,3 @@
   tasks:
     - name: run sheel date command - really just to prove accessibility
       shell: date
-      register: result
-    - name display result
-      debug: var=result
