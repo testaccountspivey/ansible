@@ -1,0 +1,6 @@
+--- # Run the date command on all hosts in Job Template avilable inventory
+- hosts: all
+  gather_facts: yes
+  tasks:
+    - name: install LYNX
+      yum: pkg=lynx state= installed update_cache=true
