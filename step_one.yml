@@ -3,4 +3,4 @@
   gather_facts: yes
   tasks:
     - name: install LYNX
-      yum: name=lynx state=installed update_cache=true
+      yum: name=httpd state=latest
