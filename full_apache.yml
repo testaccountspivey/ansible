@@ -1,0 +1,35 @@
+--- # Build an Apache Web Server
+- hosts: all
+  become: yes
+  gather_facts: yes
+  vars:
+    apache_pkg: httpd
+    distribution: "{{ ansible_os_family }}"
+    apache_version: 2.4
+    apache_dir: /var/www/sample
+    apache_fqdn: ec2-54-210-126-178.compute-1.amazonaws.com
+  tasks:
+  - name: Install Apache Web Server
+    yum: pkg={{ apache_pkg }} state=latest
+  - name: Create the Web Server Directory
+    file: path={{ apache_dir }} state=directory mode=644
+#  - name: Copy Apache Configuration to Remote Host
+#    copy: src=files/httpd.conf.template dest=/etc/httpd/conf/httpd.conf owner=root group=root mode=644
+#  - name: Create the VHOST.D Directory
+#    file: path=/etc/httpd/vhost.d state=directory mode=755
+#  - name: Copy and untar the site code to the new directory
+#    unarchive: src=files/sitecode.tar.gz dest={{ apache_dir }}
+#  - name: Copy the Default VHOST Configuration File
+#    copy: src=files/default.conf.template dest=/etc/httpd/vhost.d/default.conf owner=root group=root mode=644
+    notify: 
+      - StartHttpd
+      - TestHttpd
+      - DisplayResult
+  handlers:
+  - name: StartHttpd
+    service: name=httpd state=started
+  - name: TestHttpd
+    shell: curl http://{{ apache_fqdn }}
+    register: result
+  - name: DisplayResult
+    debug: var=result
