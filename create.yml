@@ -1,6 +1,6 @@
 --- build basic VPC, SUBNET, INSTANCE
 - hosts: all
-  gather facts: no
+  gather_facts: no
   tasks:
     - name: create vpc
       ec2_vpc:
