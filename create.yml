@@ -1,4 +1,4 @@
---- build basic VPC, SUBNET, INSTANCE
+--- # build basic VPC, SUBNET, INSTANCE
 - hosts: all
   gather_facts: no
   tasks:
