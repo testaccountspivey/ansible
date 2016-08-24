@@ -18,7 +18,7 @@
             routes:
               - dest: 0.0.0.0/0
                 gw: igw
-        region: 'us-east-1'
+        region: us-east-1
         wait: yes
       register: vpc
 
