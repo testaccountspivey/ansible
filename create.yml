@@ -4,8 +4,8 @@
   gather_facts: false
   vars:
     ami:
-      - Amamzon_Linux: ami-6869aa05
-      - RedHat_72: ami-2051294a
+      - AmamzonLinux: ami-6869aa05
+      - RedHat72: ami-2051294a
 #    region: us-east-1
 #    key_name: testkeypair2
 #    app_name: app_ansible_demo
