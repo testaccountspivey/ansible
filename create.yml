@@ -2,6 +2,8 @@
 - hosts: localhost
   connection: local
   gather_facts: false
+  vars:
+    region: us-east-1
   tasks:
     - name: create vpc
       ec2_vpc:
@@ -18,7 +20,7 @@
             routes:
               - dest: 0.0.0.0/0
                 gw: igw
-        region: us-east-1
+        region: "{{ region }}"
         wait: yes
       register: vpc
 
