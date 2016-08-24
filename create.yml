@@ -2,8 +2,10 @@
 - hosts: localhost
   connection: local
   gather_facts: false
-  vars:
-    ami: {RedHat72: ami-2051294a, AmazonLinux: ami-6869aa05}
+- include_vars:
+  file: {{ ami }}.yml
+#  vars:
+#    ami: {RedHat72: ami-2051294a, AmazonLinux: ami-6869aa05}
   tasks:
     - name: create vpc
       ec2_vpc:
