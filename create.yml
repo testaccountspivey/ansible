@@ -1,8 +1,8 @@
 --- # build basic VPC, SUBNET, INSTANCE
-- hosts: localhost
+- hosts: all
   gather_facts: no
+  connection: local
   become: yes
-  become_user: root
   tasks:
     - name: create vpc
       ec2_vpc:
