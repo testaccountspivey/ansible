@@ -2,7 +2,6 @@
 - hosts: all
   connection: local
   gather_facts: false
-  become: yes
   tasks:
     - name: create vpc
       ec2_vpc:
