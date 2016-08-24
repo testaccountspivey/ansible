@@ -1,5 +1,5 @@
 --- # build basic VPC, SUBNET, INSTANCE
-- hosts: all
+- hosts: localhost
   gather_facts: no
   connection: local
   become: yes
