@@ -6,6 +6,7 @@
     region: us-east-1
     key_name: ansible_demo
     app_name: app_ansible_demo
+    desired_capacity: 2
   tasks:
     - name: create vpc
       ec2_vpc:
