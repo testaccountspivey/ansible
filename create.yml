@@ -1,7 +1,7 @@
 --- # build basic VPC, SUBNET, INSTANCE
-- hosts: localhost
-  gather_facts: no
+- hosts: all
   connection: local
+  gather_facts: false
   become: yes
   tasks:
     - name: create vpc
