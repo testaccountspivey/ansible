@@ -1,0 +1,16 @@
+--- # build basic VPC, SUBNET, INSTANCE
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    instance_ids:
+      - 'i-6e6a42e8'
+    region: us-east-1
+    subnet_id: subnet-199f476e
+  tasks:
+    - name: create instances
+      ec2:
+        region: "{{ region }}"
+        vpc_subnet_id: "{{ subnet_id }}"
+        instance_ids: '{{ instance_ids }}'
+        state: running
