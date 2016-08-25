@@ -3,36 +3,19 @@
   connection: local
   gather_facts: false
   vars:
-    templates:
-      RedHat72:  "ami-2051294a"
-      AmazonLinux: "ami-6869aa05"
+    instance_ids:
+      - 'i-6e6a42e8'
+    region: us-east-1
+    subnet_id: subnet-199f476e
   tasks:
-
     - name: create instances
       ec2:
-        assign_public_ip: yes
         region: "{{ region }}"
-        key_name: "{{ key_name }}"
-        group_id:
-        - "{{ app_security_group.group_id }}"
-        - "{{ admin_access.group_id }}"
-        instance_type: "{{ instance_size }}"
-        vpc_subnet_id: "{{ vpc.subnets[0].id }}"
-        image: "{{ ami }}"
-        wait: yes
-        wait_timeout: 500
-        exact_count: "{{ desired_capacity }}"
-        count_tag:
-           app: "{{ app_name }}"
-           env: training
+        vpc_subnet_id: "{{ subnet_id }}"
         instance_tags:
-           app: "{{ app_name }}"
-           env: training
-      register: result
-
-    - name: waiting for ssh to start
-      wait_for: 
-        port: 22 
-        host: "{{ item.public_ip }}"
-        timeout: 300
-      with_items: result.tagged_instances
+          turnoffnightly: true
+        state: running
+        wait: True
+      register: instance
+    - name: display ec2 instance info
+      debug: var=instance
