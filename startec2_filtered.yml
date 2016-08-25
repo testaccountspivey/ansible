@@ -12,7 +12,7 @@
       ec2_remote_facts:
         filters:
           instance-state-name: running
-          "tag:Name": Example
+          "tag:turnoffnightly": true
       register: instances
     - name: display facts about discovered instance using filter
       debug: vars=instances
