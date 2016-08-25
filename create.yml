@@ -10,11 +10,11 @@
     - name: Set ami value based on user input Amazon Linux
       set_fact:
         ami: "{{ templates.AmazonLinux }}"
-      when: user_choice == "Redhat" 
+      when: user_choice == "AmazonLinux " 
     - name: Set ami value based on user input RedHat72
       set_fact:
         ami: "{{ templates.RedHat72 }}"
-      when: user_choice == "Redhat"
+      when: user_choice == "RedHat72"
     - name: create vpc
       ec2_vpc:
         state: present
