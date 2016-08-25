@@ -3,10 +3,18 @@
   connection: local
   gather_facts: false
 - include_vars:
-  file: {{ ami }}.yml
-#  vars:
-#    ami: {RedHat72: ami-2051294a, AmazonLinux: ami-6869aa05}
+  file: {{ ami }}.ymlvars:
+  vars:
+    templates:
+      RedHat72:  "ami-2051294a"
+      AmazonLinux: "ami-6869aa05"
+
   tasks:
+     -name: Set ami value based on user input
+        set_fact: 
+          ami: “{{ templates.redhat72 }}” 
+        when: user_choice == “Redhat” 
+
     - name: create vpc
       ec2_vpc:
         state: present
