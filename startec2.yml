@@ -12,10 +12,8 @@
       ec2:
         region: "{{ region }}"
         vpc_subnet_id: "{{ subnet_id }}"
-        instance_tags:
-          turnoffnightly: true
+        instance_ids: "{{ instance_ids }}"
         state: running
-        wait: True
       register: instance
     - name: display ec2 instance info
       debug: var=instance
