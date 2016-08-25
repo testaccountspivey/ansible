@@ -8,6 +8,14 @@
     region: us-east-1
     subnet_id: subnet-199f476e
   tasks:
+    - name: gather facts
+      ec2_remote_facts:
+        filters:
+          instance-state-name: running
+          "tag:Name": Example
+      register: instances
+    - name: display facts about discovered instance using filter
+      debug: vars=instances
     - name: create instances
       ec2:
         region: "{{ region }}"
