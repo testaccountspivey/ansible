@@ -2,19 +2,19 @@
 - hosts: localhost
   connection: local
   gather_facts: false
-#  vars:
-#    templates:
-#      RedHat72:  "ami-2051294a"
-#      AmazonLinux: "ami-6869aa05"
+  vars:
+    templates:
+      RedHat72:  "ami-2051294a"
+      AmazonLinux: "ami-6869aa05"
   tasks:
     - name: Set ami value based on user input Amazon Linux
       set_fact:
         ami: "{{ templates.AmazonLinux }}"
-      when: user_choice == "AmazonLinux " 
-    - name: Set ami value based on user input RedHat72
+      when: user_choice == "Amazon Linux" 
+    - name: Set ami value based on user input RedHat 7.2
       set_fact:
         ami: "{{ templates.RedHat72 }}"
-      when: user_choice == "RedHat72"
+      when: user_choice == "RedHat 7.2"
     - name: create vpc
       ec2_vpc:
         state: present
