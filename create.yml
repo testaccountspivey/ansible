@@ -2,10 +2,10 @@
 - hosts: localhost
   connection: local
   gather_facts: false
-  vars:
-    templates:
-      RedHat72:  "ami-2051294a"
-      AmazonLinux: "ami-6869aa05"
+#  vars:
+#    templates:
+#      RedHat72:  "ami-2051294a"
+#      AmazonLinux: "ami-6869aa05"
   tasks:
     - name: Set ami value based on user input Amazon Linux
       set_fact:
