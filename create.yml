@@ -2,17 +2,13 @@
 - hosts: localhost
   connection: local
   gather_facts: false
-#- include_vars:
-#  file: {{ ami }}.yml
   vars:
     templates:
       RedHat72:  "ami-2051294a"
       AmazonLinux: "ami-6869aa05"
-
   tasks:
      -name: Set ami value based on user input Amazon Linux
-      set_fact: 
-        ami: “{{ templates.AmazonLinux }}” 
+      set_fact: ami: “{{ templates.AmazonLinux }}” 
       when: user_choice == “Redhat” 
      -name: Set ami value based on user input RedHat72
       set_fact:
