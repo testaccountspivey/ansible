@@ -17,7 +17,7 @@
           "tag:turnoffnightly": true
       register: instances
     - name: display facts about discovered instance using filter
-      debug: var=instances
+      debug: var=instances.instance_ids
     - name: create instances
       ec2:
         region: "{{ region }}"
