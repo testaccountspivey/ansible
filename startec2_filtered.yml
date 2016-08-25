@@ -16,9 +16,7 @@
           vpc-id: vpc-6a7dc60f
           "tag:turnoffnightly": true
       register: ec2_info
-    - debug: var=ec2_info
-    - debug: var=item
-      with_items: ec2_info.instance_ids
+    - debug: msg={{ec2_info.instance_ids}}
     - name: display facts about discovered instance using filter
       debug: var=instances
     - name: chabnge instance state
