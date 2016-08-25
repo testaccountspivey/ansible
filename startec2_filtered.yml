@@ -10,7 +10,7 @@
   tasks:
     - name: gather facts
       ec2_facts:
-        region: "{{ region }}"
+  #      region: "{{ region }}"
         filters:
           instance-state-name: running
           vpc-id: vpc-6a7dc60f
