@@ -9,7 +9,7 @@
     subnet_id: subnet-199f476e
   tasks:
     - name: gather facts
-      ec2_remote_facts:
+      ec2_facts:
         region: "{{ region }}"
         filters:
           instance-state-name: running
@@ -18,7 +18,7 @@
       register: instances
     - name: display facts about discovered instance using filter
       debug: var=instances
-    - name: create instances
+    - name: chabnge instance state
       ec2:
         region: "{{ region }}"
         vpc_subnet_id: "{{ subnet_id }}"
