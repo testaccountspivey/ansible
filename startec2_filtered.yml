@@ -10,8 +10,10 @@
   tasks:
     - name: gather facts
       ec2_remote_facts:
+        region: "{{ region }}"
         filters:
           instance-state-name: running
+          vpc-id: vpc-6a7dc60f
           "tag:turnoffnightly": true
       register: instances
     - name: display facts about discovered instance using filter
