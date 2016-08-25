@@ -2,8 +2,8 @@
 - hosts: localhost
   connection: local
   gather_facts: false
-- include_vars:
-  file: {{ ami }}.ymlvars:
+#- include_vars:
+#  file: {{ ami }}.yml
   vars:
     templates:
       RedHat72:  "ami-2051294a"
