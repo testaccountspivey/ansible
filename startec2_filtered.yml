@@ -9,8 +9,8 @@
     subnet_id: subnet-199f476e
   tasks:
     - name: gather facts
-      ec2_facts:
-  #      region: "{{ region }}"
+      ec2_remote_facts:
+        region: "{{ region }}"
         filters:
           instance-state-name: running
           vpc-id: vpc-6a7dc60f
