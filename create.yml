@@ -10,11 +10,14 @@
       AmazonLinux: "ami-6869aa05"
 
   tasks:
-     -name: Set ami value based on user input
-        set_fact: 
-          ami: “{{ templates.redhat72 }}” 
-        when: user_choice == “Redhat” 
-
+     -name: Set ami value based on user input - Amazon Linux
+      set_fact: 
+        ami: “{{ templates.redhat72 }}” 
+      when: user_choice == “Redhat” 
+     -name: Set ami value based on user input - RedHat 7.2
+      set_fact: 
+        ami: “{{ templates.redhat72 }}” 
+      when: user_choice == “Redhat” 
     - name: create vpc
       ec2_vpc:
         state: present
