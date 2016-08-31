@@ -1,4 +1,4 @@
---- # build basic VPC, SUBNET, INSTANCE
+--- # build basic VPC, SUBNET, INSTANCE - intended to be used in combination with Tower's survey fields to feed playbook vars
 - hosts: localhost
   connection: local
   gather_facts: false
