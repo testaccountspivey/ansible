@@ -3,6 +3,18 @@
   connection: local
   gather_facts: false
   vars:
+    templates:
+      RedHat72:  "ami-2051294a"
+      AmazonLinux: "ami-6869aa05"
+  tasks:
+    - name: Set ami value based on user input Amazon Linux
+      set_fact:
+        ami: "{{ templates.AmazonLinux }}"
+      when: AMI_Image == "Amazon Linux" 
+    - name: Set ami value based on user input RedHat 7.2
+      set_fact:
+        ami: "{{ templates.RedHat72 }}"
+      when: AMI_Image == "RedHat 7.2"
   tasks:
     - name: create instance
       ec2:
