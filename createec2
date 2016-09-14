@@ -1,0 +1,24 @@
+--- # name: Execute a script
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+  tasks:
+    - name: create instance
+      ec2:
+          assign_public_ip: no
+          region: {{ Region }}
+          key_name: {{ Key_Name }}
+          group: {{ Security_Group }}
+          image: {{ AMI_Image }}
+          instance_type: {{ Instance_Type }}
+          vpc_subnet_id: {{ Subnet_ID }}
+          count: 1
+          instance_tags:
+            Name: {{ Host_Name_Tag }}
+            Project: {{ Project_Tag }}
+            Description: {{ Description_Tag }}
+            Environment: {{ Environment_Tag }}
+          wait: yes
+          wait_timeout: 500
+      register: ec2
