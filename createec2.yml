@@ -4,7 +4,7 @@
   gather_facts: false
   vars:
     templates:
-      RedHat72:  "ami-2051294a"
+      RedHat72:  "ami-775e4f16"
       AmazonLinux: "ami-6869aa05"
   tasks:
     - name: Set ami value based on user input Amazon Linux
