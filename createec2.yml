@@ -16,7 +16,7 @@
           assign_public_ip: no
           region: "{{ region }}"
           key_name: "{{ key_name }}"
-          group: "{{ security_group }}"
+          group: sg-bc61badb
           image: "{{ ami }}"
           instance_type: "{{ instance_type }}"
           vpc_subnet_id: "{{ subnet_id }}"
