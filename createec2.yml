@@ -22,9 +22,9 @@
           vpc_subnet_id: "{{ subnet_id }}"
           count: 1
           instance_tags:
-            Name: "{{ host_name_tag }}"
-            Project: "{{ project_tag }}"
-            Description: "{{ description_tag }}"
+            Name: "{{ Host_Name_Tag }}"
+            Project: "{{ Project_Tag }}"
+            Description: "{{ Description_Tag }}"
             Environment: "{{ Environment_Tag }}"
           wait: yes
           wait_timeout: 500
