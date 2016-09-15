@@ -10,7 +10,7 @@
     - name: Set ami value based on user input Amazon Linux
       set_fact:
         ami: "{{ templates.RedHat72 }}"
-      when: AMI_Image == "RedHat 7.2 Gold"
+      when: ami_image == "RedHat 7.2 Gold"
     - name: create instance
       ec2:
           assign_public_ip: no
