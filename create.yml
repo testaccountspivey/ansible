@@ -18,7 +18,6 @@
     - name: create vpc
       ec2_vpc:
         state: present
-        region: us-west-2
         cidr_block: 172.22.0.0/16
         resource_tags: { "Name":"Training" }
         subnets:
